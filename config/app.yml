@@ -1,0 +1,2 @@
+mysql:
+  dns: root:180319@tcp(127.0.0.1:3306)/my_database?charset=utf8mb4&parseTime=True&loc=Local
