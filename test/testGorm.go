@@ -27,5 +27,5 @@ func main() {
 	//db.Create(user)
 
 	fmt.Println(db.First(user, 1))
-	//db.Model(user).Update("Password", "180319")
+	//db.Model(user).Update("Password", "666")
 }
