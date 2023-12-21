@@ -1,12 +1,13 @@
 package main
 
 import (
-   "github.com/gin-gonic/gin"
-   docs "github.com/go-project-name/docs"
-   swaggerfiles "github.com/swaggo/files"
-   ginSwagger "github.com/swaggo/gin-swagger"
-   "net/http"
+	"ginchat/docs"
+	"net/http"
+	"github.com/gin-gonic/gin"
+	swaggerfiles "github.com/swaggo/files"
+	ginSwagger "github.com/swaggo/gin-swagger"
 )
+
 // @BasePath /api/v1
 
 // PingExample godoc
