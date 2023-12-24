@@ -23,17 +23,19 @@ type UserBasic struct {
 	DeviceInfo    string
 }
 
-func (table *UserBasic) TableName() string{
+func (table *UserBasic) TableName() string {
 	return "user_basic"
 }
 
 func GetUserList() []*UserBasic {
 	data := make([]*UserBasic, 10)
 	utils.DB.Find(&data)
-	for _ ,v := range data {
+	for _, v := range data {
 		fmt.Println(v)
 	}
 	return data
-
 }
-	
+
+func CreateUser(user UserBasic) *gorm.DB {
+	return utils.DB.Create(&user)
+}

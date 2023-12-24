@@ -11,10 +11,14 @@ import (
 
 func Router() *gin.Engine {
 	r := gin.Default()
-	docs.SwaggerInfo.BasePath="/docs/swagger.json"
-	r.GET("/swagger/*any",ginSwagger.WrapHandler(swaggerfiles.Handler))
+	docs.SwaggerInfo.BasePath = "/docs/swagger.json"
+	swaggerURL := ginSwagger.URL("http://localhost:8080/swagger/doc.json") // Swagger 文档的 URL
+	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerfiles.Handler, swaggerURL))
+	
+
 	r.GET("/index", service.GetIndex)
 	r.GET("/user/getUserList", service.GetUserList)
+	r.GET("/user/createUser", service.CreateUser)
 
 	return r
 }
