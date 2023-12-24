@@ -11,7 +11,7 @@ import (
 
 func Router() *gin.Engine {
 	r := gin.Default()
-	docs.SwaggerInfo.BasePath=""
+	docs.SwaggerInfo.BasePath="/docs/swagger.json"
 	r.GET("/swagger/*any",ginSwagger.WrapHandler(swaggerfiles.Handler))
 	r.GET("/index", service.GetIndex)
 	r.GET("/user/getUserList", service.GetUserList)

@@ -1,7 +1,7 @@
 package main
 
 import (
-	"ginchat/router1"
+	rt "ginchat/router"
 	"ginchat/utils"
 )
 
@@ -9,6 +9,6 @@ func main() {
 	utils.InitConfig()
 	utils.InitMySQL()
 
-	r := router1.Router()
+	r := rt.Router()
 	r.Run("localhost:8081")
 }
