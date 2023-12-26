@@ -11,8 +11,8 @@ import (
 
 func Router() *gin.Engine {
 	r := gin.Default()
-	docs.SwaggerInfo.BasePath = "/docs/swagger.json"
-	swaggerURL := ginSwagger.URL("http://localhost:8080/swagger/doc.json") // Swagger 文档的 URL
+	docs.SwaggerInfo.BasePath = ""
+	swaggerURL := ginSwagger.URL("http://localhost:8081/swagger/doc.json") // Swagger 文档的 URL
 	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerfiles.Handler, swaggerURL))
 	
 

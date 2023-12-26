@@ -13,6 +13,7 @@ import (
 )
 
 var DB *gorm.DB
+
 func InitConfig() {
 	viper.SetConfigName("app")
 	viper.AddConfigPath("config")
@@ -25,19 +26,19 @@ func InitConfig() {
 
 func InitMySQL() {
 	//自定义日志模板 打印SQL语句
-	newLogger :=logger.New(
-		log.New(os.Stdout,"\r\n", log.LstdFlags),
+	newLogger := logger.New(
+		log.New(os.Stdout, "\r\n", log.LstdFlags),
 		logger.Config{
-			SlowThreshold: time.Second,//慢SQL阈值
-			LogLevel: logger.Info,//级别
-			Colorful: true,
+			SlowThreshold: time.Second, //慢SQL阈值
+			LogLevel:      logger.Info, //级别
+			Colorful:      true,
 		},
 	)
-	DB, _ = gorm.Open(mysql.Open(viper.GetString( "mysql.dns")),
+	DB, _ = gorm.Open(mysql.Open(viper.GetString("mysql.dns")),
 		&gorm.Config{Logger: newLogger})
 	fmt.Println("MySQL inited...")
 	//user := models.UserBasic{}
 	//DB.Find(&user)
 	//fmt.Println(user)
-	
+
 }

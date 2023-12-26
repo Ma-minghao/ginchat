@@ -26,9 +26,9 @@ func GetUserList(c *gin.Context) {
 // CreateUser
 //	@Summary	新增用户
 //	@Tags		用户模块
-//	@Parm		name query string false "用户名"
-//	@Parm		password query string false "密码"
-//	@Parm		repassword query string false "确认密码"
+//	@Param		name query string false "用户名"
+//	@Param		password query string false "密码"
+//	@Param		repassword query string false "确认密码"
 //	@Success	200	{string}	json{"code","message"}
 //	@Router		/user/getUserList [get]
 
@@ -46,7 +46,7 @@ func CreateUser(c *gin.Context) {
 	user.Password = password
 	models.CreateUser(user)
 	c.JSON(200,gin.H{
-		"message":"新增用户成果",
+		"message":"新增用户成功",
 	})
 	
 }
